@@ -2,8 +2,11 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   name: tanzu-java-web-app
+  annotations:
+    autoscaling.knative.dev/minScale: "1"
   labels:
     apps.tanzu.vmware.com/workload-type: web
+    apps.tanzu.vmware.com/has-tests: "true"
     app.kubernetes.io/part-of: tanzu-java-web-app
 spec:
   params:
@@ -12,6 +15,6 @@ spec:
       autoscaling.knative.dev/minScale: "1"
   source:
     git:
-      url: https://github.com/sample-accelerators/tanzu-java-web-app
+      url: https://github.com/justeh/tanzu-java-web-app-source
       ref:
         branch: main
