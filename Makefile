@@ -18,4 +18,4 @@ get:
 .PHONY: deploy-source
 deploy-source:
 	tanzu apps workload delete tanzu-java-web-app -n $(NAMESPACE) -y
-	tanzu apps workload apply -f config/workload.yaml --build-env BP_CPYTHON_VERSION="3.10.*" -y
+	tanzu apps workload apply -f config/workload.yaml --build-env BP_CPYTHON_VERSION="3.10.*" -y -n $(NAMESPACE)
